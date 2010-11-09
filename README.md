@@ -66,20 +66,19 @@ ICompoundCommandConfig - returned when mapping / unmapping - has the API:
 
 	function addRequiredEvent(eventType:String, eventClass:Class = null, named:String = ""):ICompoundCommandConfig;
 	
-	// all events set using addRequiredEvent
-	function get requiredEvents():Array;
+	function get requiredEvents():Array; 			// all events set using addRequiredEvent
+		
+	function get remainingRequiredEvents():Array; 	// events that have not yet fired
 	
-	// events that have not yet fired
-	function get remainingRequiredEvents():Array;
+	function get requiredInOrder():Boolean; 		/* whether the events are only picked up in order - 
+											   		ie event2 is ignored until after event1 is received */ 
 	
-	// whether the events are only picked up in order - ie event2 is ignored until after event1 is received
-	function get requiredInOrder():Boolean;
+    function get eventsAsPayloads():Array; 			/* returns an array of the events that have arrived so
+ 													   far as a strong typed IEventAsPayload with 3 properties:
+											   		   the event, the event class and the event name,
+													   if it was mapped with a name  */
 	
-	/* returns an array of the events that have arrived so far as a strong typed IEventAsPayload with 3 properties:
-	   the event, the event class and the event name if it was mapped with a name  */
-	function get eventsAsPayloads():Array;
-	
-	function get oneshot():Boolean;
+	function get oneshot():Boolean;					// whether this command is unmapped after one execution	
 	
 
 See tests/org/robotlegs/base/CompoundCommandMapTest for full usage examples.
