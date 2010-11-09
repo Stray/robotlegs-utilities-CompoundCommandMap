@@ -8,6 +8,9 @@ No swc as you should compile from source to ensure it extends the same version o
 
 In your context:
 	
+	// implement this interface:
+	import org.robotlegs.core.ICompoundCommandContext;
+	
 	protected var _compoundCommandMap:ICompoundCommandMap;
 	
 	public function get compoundCommandMap():ICompoundCommandMap
