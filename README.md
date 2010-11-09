@@ -8,10 +8,22 @@ No swc as you should compile from source to ensure it extends the same version o
 
 In your context:
 	
+	protected var _compoundCommandMap:ICompoundCommandMap;
+	
+	public function get compoundCommandMap():ICompoundCommandMap
+    {
+        return _compoundCommandMap || (_compoundCommandMap = new CompoundCommandMap(eventDispatcher, injector, reflector));
+    }
+
+    public function set compoundCommandMap(value:ICompoundCommandMap):void
+    {
+        _compoundCommandMap = value;
+    }
+	
 	override protected function mapInjections():void
     {
         super.mapInjections();
-        injector.mapValue(ICompoundCommandMap, new CompoundCommandMap(eventDispatcher, injector, reflector));
+        injector.mapValue(ICompoundCommandMap, compoundCommandMap);
     }
        
 
