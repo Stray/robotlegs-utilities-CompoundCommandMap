@@ -34,8 +34,8 @@ Where you want to map commands to multiple events:
 
 	// params: command, isOneShot, requireInOrder
 	compoundCommandMap.mapToEvents(SomeAwesomeCommand, true, true)
-    	.addRequiredEvent(SomeEvent.SOMETHING_HAPPENED, SomeEvent);
-    	.addRequiredEvent(SomeOtherEvent.SOMETHING_ELSE_HAPPENED, SomeOtherEvent, 'somethingElseHappened');
+    	.addRequiredEvent(SomeEvent.SOMETHING_HAPPENED, SomeEvent)
+    	.addRequiredEvent(SomeOtherEvent.SOMETHING_ELSE_HAPPENED, SomeOtherEvent, 'somethingElseHappened')
     	.addRequiredEvent(SomeOtherEvent.STUFF_HAPPENED, SomeOtherEvent, 'stuffHappened');
   
 
